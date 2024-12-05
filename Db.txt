@@ -1,0 +1,6 @@
+CREATE TABLE students (
+    roll_number INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    class TEXT NOT NULL,
+    marks INTEGER NOT NULL
+);

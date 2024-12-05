@@ -1,0 +1,68 @@
+Project Name: Student Management System
+==============================================
+Overview:
+========
+Create a simple application to manage student data. The program should allow users to perform basic CRUD (Create, Read, Update, Delete) operations on a database of students.
+
+Features:
+----------------------------------------------------------------------------
+Add Student
+
+Input student details: Name, Roll Number, Class, and Marks.
+Insert these details into a database.
+View Students
+
+Fetch and display all student records from the database in a tabular format.
+Update Student
+
+Update details (e.g., Marks or Class) of a student based on their Roll Number.
+Delete Student
+
+Delete a student’s record using their Roll Number.
+Search Student
+
+Search for a student by Roll Number or Name and display their details.
+----------------------------------------------------------------------------
+Python: For writing the application logic.
+SQLite: As the database (it’s lightweight and doesn’t require extra setup).
+Libraries:
+sqlite3 (built-in Python library for database interaction).
+tabulate (optional, for pretty output).
+Project Structure
+Database Setup:
+Create a database file (students.db) and a table (students).
+----------------------------------------------------------------------------
+
+sql:(Create table like below)
+============================================================
+CREATE TABLE students (
+    roll_number INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    class TEXT NOT NULL,
+    marks INTEGER NOT NULL
+);
+============================================================
+
+Python Script:
+============================================================
+add_student(): To add records.
+view_students(): To display all records.
+update_student(): To update a record.
+delete_student(): To delete a record.
+search_student(): To search for a specific student.
+============================================================
+
+
+User Interface(kinter Widgets):
+============================================================
+Entry Widgets: For entering student details.
+Buttons: For performing actions (Add, View, Delete, Search).
+Listbox: For displaying student records.
+Scrollbar: For scrolling through the listbox.
+============================================================
+
+HOW TO RUN:
+----------
+-->Save the script as student_management.py.
+-->Run the script using Python 3.
+-->Enter student details, view, search, or delete them using the GUI.
