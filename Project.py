@@ -1,4 +1,4 @@
-import pyodbc
+import mysql.connector
 from tkinter import Tk, Label, Entry, Button, Listbox, Scrollbar, END, messagebox
 
 # Database Setup
