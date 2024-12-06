@@ -1,18 +1,10 @@
-import sqlite3
+import pyodbc
 from tkinter import Tk, Label, Entry, Button, Listbox, Scrollbar, END, messagebox
 
 # Database Setup
-conn = sqlite3.connect("students.db")
-cursor = conn.cursor()
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS students (
-    roll_number INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    class TEXT NOT NULL,
-    marks INTEGER NOT NULL
-)
-""")
-conn.commit()
+import mysql.connector # Define your connection details 
+conn = mysql.connector.connect( host="your_host", user="your_username", password="your_password", database="your_database" ) 
+cursor.execute(""" CREATE TABLE IF NOT EXISTS students ( roll_number INT PRIMARY KEY, name VARCHAR(100) NOT NULL, class VARCHAR(100) NOT NULL, marks INT NOT NULL ) """)
 
 # Functions
 def add_student():
@@ -22,7 +14,6 @@ def add_student():
                            (int(roll_number_var.get()), name_var.get(), class_var.get(), int(marks_var.get())))
             conn.commit()
             messagebox.showinfo("Success", "Student added successfully!")
-            view_students()
         except sqlite3.IntegrityError:
             messagebox.showerror("Error", "Roll Number already exists.")
     else:
@@ -39,7 +30,7 @@ def delete_student():
         cursor.execute("DELETE FROM students WHERE roll_number=?", (int(roll_number_var.get()),))
         conn.commit()
         messagebox.showinfo("Success", "Student deleted successfully!")
-        view_students()
+        #view_students()
     else:
         messagebox.showerror("Error", "Roll Number is required.")
 
